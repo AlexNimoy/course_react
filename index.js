@@ -1,7 +1,13 @@
-import Arithmetic from '~/src/Arithmetic';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-let a = new Arithmetic(4, 2);
-console.log(a.add());
-console.log(a.sub());
-console.log(a.mult());
-console.log(a.div());
+class HelloWorld extends Component {
+  render() {
+    return "Hello World!";
+  }
+}
+
+ReactDOM.render(
+  <HelloWorld />,
+  document.getElementById('root')
+)
