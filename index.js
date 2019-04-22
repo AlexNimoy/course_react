@@ -1,37 +1,28 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import fetchRepos from '~/src/Github';
+const express = require('express');
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { repos: [] };
-  }
+require('@babel/register');
+require('@babel/polyfill');
 
-  componentDidMount() {
-    fetchRepos()
-      .then((repos) => {
-        this.setState({ repos });
-      })
-  }
+const render = require('./render').default;
 
-  render() {
-    const { repos } = this.state;
-    return(
-      <div>
-        <ul>
-          {
-            repos.map((repo) => (
-              <li key={repo} >{repo}</li>
-            ))
-          }
-        </ul>
-      </div>
-    );
-  }
-}
+const app = express();
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+app.get('/', async (_, res) => {
+  const response = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Course React</title>
+    </head>
+    <body>
+      <div id="root">${await render()}</div>
+    </body>
+    </html>
+  `;
+  res.send(response);
+});
+
+app.listen(3001, () => { console.log('Server started, port 3001') })
