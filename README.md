@@ -1,2 +1,2 @@
-# course_react
+# Thinknetica React Course
 Thinknetica React Course
