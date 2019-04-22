@@ -22,7 +22,7 @@ class App extends Component {
         <ul>
           {
             repos.map((repo) => (
-              <li>{repo}</li>
+              <li key={repo} >{repo}</li>
             ))
           }
         </ul>
