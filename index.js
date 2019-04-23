@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Arithmetic from './src/Arithmetic';
 
-class HelloWorld extends Component {
+class Calculate extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    return "Hello World!";
+    const { x, y, operation } = this.props;
+
+    return new Arithmetic(x, y)[operation]() ;
   }
 }
 
 ReactDOM.render(
-  <HelloWorld />,
+  <Calculate x='4' y='2' operation='add' />,
   document.getElementById('root')
 )

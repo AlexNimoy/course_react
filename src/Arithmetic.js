@@ -1,7 +1,7 @@
 class Arithmetic {
   constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
+    this.x = parseInt(x);
+    this.y = parseInt(y);
   }
 
   // Addition
