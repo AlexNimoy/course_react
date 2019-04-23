@@ -18,9 +18,9 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0"
   },
   "bugs": {
     "url": "https://github.com/Backstabe/course_react/issues"
