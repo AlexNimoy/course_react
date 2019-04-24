@@ -1,9 +1,38 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Person from './components/Person';
+class EventListener extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { eventType: 'Unknown' };
+
+    this.update = this.update.bind(this);
+  }
+
+  update(e) {
+    this.setState({
+      eventType: e.type
+    })
+  }
+
+  render() {
+    const { eventType } = this.state;
+    return(
+      <Fragment>
+        <h1>{eventType}</h1>
+        <textarea
+          // onChange = { this.update }
+          onPaste = { this.update }
+          onCopy = { this.update }
+          onCut = { this.update }
+        />
+      </Fragment>
+    );
+  }
+}
 
 ReactDOM.render(
-  <Person />,
+  <EventListener />,
   document.getElementById('root')
 )
