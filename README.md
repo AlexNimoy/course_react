@@ -3,6 +3,4 @@ Thinknetica React Course
 
 ## Run
 
-`node index.js`
-
-`http:://localhost:3001`
+`parcel index.html`

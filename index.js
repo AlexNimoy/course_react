@@ -1,28 +1,35 @@
-const express = require('express');
+import React, { Children } from 'react';
+import ReactDOM from 'react-dom';
 
-require('@babel/register');
-require('@babel/polyfill');
+const Segment = ({children, dashed, color}) => (
+  <div
+    style={{
+      border: `1px ${dashed ? 'dashed' : 'solid'} ${color}`
+    }}
+  >
+    {Children.map(
+      children,
+      (child, key) => (
+        <div
+          key={key}
+          style={{ border: '1px solid red' }}
+        >
+          {child}
+        </div>
+      )
+    )}
+  </div>
+);
 
-const render = require('./render').default;
+Segment.defaultProps = {
+  color: 'black'
+}
 
-const app = express();
-
-app.get('/', async (_, res) => {
-  const response = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Course React</title>
-    </head>
-    <body>
-      <div id="root">${await render()}</div>
-    </body>
-    </html>
-  `;
-  res.send(response);
-});
-
-app.listen(3001, () => { console.log('Server started, port 3001') })
+ReactDOM.render(
+  <Segment>
+    <div>sad</div>
+    <div>sadf</div>
+    {() => <div>Third</div>}
+  </Segment>,
+  document.getElementById('root')
+)
