@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Products from './constants/Products';
-import Catalog from './components/Catalog';
-import CartButton from './components/CartButton';
+import Products from '~/src/constants/Products';
+import Catalog from '~/src/components/Catalog';
+import CartButton from '~/src/components/CartButton';
 
-import { CartProvider } from './contexts/cartContext';
-import { BuyProvider } from './contexts/buyContext';
-import CartDetails from './components/CartDetails';
+import { CartProvider } from '~/src/contexts/cartContext';
+import { BuyProvider } from '~/src/contexts/buyContext';
+import CartDetails from '~/src/components/CartDetails';
 
 class CatalogPage extends Component {
   constructor() {
