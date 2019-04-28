@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 
 import ProductCard from './ProductCard';
 
-const Catalog = ({ products }) => (
+const Catalog = ({ children }) => (
   <section className='catalog'>
     {
-      products.map((product, i) =>
+      children.map((product, i) =>
       <ProductCard {...product} key={product.id}/>)
     }
   </section>
 );
 
 Catalog.propTypes = {
-  products: PropTypes.arrayOf(
+  children: PropTypes.arrayOf(
     PropTypes.shape(ProductCard.propTypes)
   )
 }

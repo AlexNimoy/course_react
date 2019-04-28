@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { BuyConsumer } from '../contexts/buyContext';
+import { CartConsumer } from '../contexts/cartContext';
 
 class Buy extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class Buy extends Component {
           value={ quantity }
         />
 
-        <BuyConsumer>
+        <CartConsumer>
           {context =>
             <button
               onClick={() =>
@@ -41,7 +41,7 @@ class Buy extends Component {
               Buy
             </button>
           }
-        </BuyConsumer>
+        </CartConsumer>
       </div>
     )
   }

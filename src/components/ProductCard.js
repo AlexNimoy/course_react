@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { BuyConsumer } from '../contexts/buyContext';
+import { CartConsumer } from '../contexts/cartContext';
 
 import Image from './Image';
 import TextBox from './TextBox';
@@ -10,7 +10,7 @@ import Buy from './Buy';
 
 const ProductCard = ({ id, price, title, image }) => (
   <Fragment>
-    <BuyConsumer>
+    <CartConsumer>
       { context =>
         <div
           className='product'
@@ -23,7 +23,7 @@ const ProductCard = ({ id, price, title, image }) => (
           <Buy>{id}</Buy>
         </div>
       }
-    </BuyConsumer>
+    </CartConsumer>
   </Fragment>
 );
 

@@ -37,7 +37,8 @@ class CartButton extends Component {
       <Fragment>
         <CartConsumer>
           { context =>
-            <div className={ cartClass.join(' ') }
+            <div
+              className={ cartClass.join(' ') }
               onDragEnter={ this.handleDragEnter }
               onDragLeave={ this.handleDragLeave }
               onDragOver={ this.handleDragOver }
