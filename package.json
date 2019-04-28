@@ -4,12 +4,14 @@
   "description": "Thinknetica React Course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:server": "babel-node run.js"
   },
   "keywords": [],
   "author": "Aectann",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
+    "module-alias": "^2.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.0",
@@ -17,8 +19,13 @@
     "superagent": "^5.0.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "_moduleAliases": {
+    "~" : "."
   }
 }
