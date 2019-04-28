@@ -26,6 +26,7 @@ class CartButton extends Component {
 
   handleDrop(e, func) {
     func(e.dataTransfer.getData('text/plain'));
+    this.setState({ hover: false });
   }
 
   render() {
