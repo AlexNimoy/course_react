@@ -35,7 +35,7 @@ class Buy extends Component {
           {context =>
             <button
               onClick={() =>
-                context(children, parseInt(quantity))
+                context.buy(children, quantity)
               }
             >
               Buy

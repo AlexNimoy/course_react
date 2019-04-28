@@ -19,8 +19,11 @@ class CatalogPage extends Component {
     this.buy = this.buy.bind(this)
   }
 
-  buy(id, quantity) {
+  buy(product_id, product_quantity = 1) {
     const { cart } = this.state;
+    const id = parseInt(product_id);
+    const quantity = parseInt(product_quantity);
+
     const index = cart.findIndex(x => x.id === id);
 
     if (index == -1) {
@@ -47,15 +50,25 @@ class CatalogPage extends Component {
     this.setState({ products: Products });
   }
 
+  handleDragStart(e, id) {
+    e.dataTransfer.setData('text/plain', id);
+  }
+
   render() {
     const { cart, products } = this.state;
+    const cart_length = cart.length;
     return (
       <div className='catalog-page'>
         <CartDetails>{ this.productList() }</CartDetails>
-        <CartProvider value={ cart.length }>
+        <CartProvider value={{ cart_length, buy: this.buy }}>
           <CartButton />
         </CartProvider>
-        <BuyProvider value={ this.buy }>
+        <BuyProvider
+          value={{
+            buy: this.buy,
+            dragStart: this.handleDragStart
+          }}
+        >
           <Catalog products={ products } />
         </BuyProvider>
       </div>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CartDetailsItem from './CartDetailsItem';
 
 const CartDetails = ({ children }) => (
-  <table className='cart' >
+  <table className='cart__reciept' >
     <thead>
       <tr>
         <th>Product</th>
