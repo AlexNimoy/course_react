@@ -37,7 +37,7 @@ app.get('*', (req, res) => {
     </body>
     </html>
   `;
-
+  res.status(context.status || 200);
   res.send(html);
 });
 
