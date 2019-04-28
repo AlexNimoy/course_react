@@ -1,7 +1,9 @@
 import React from 'react';
 
-const ProductPage = ({ id }) => (
-  <div>ProductPage # {id}</div>
+import Card from './Card';
+
+const ProductPage = () => (
+  <Card />
 );
 
 export default ProductPage;
