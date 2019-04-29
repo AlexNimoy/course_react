@@ -4,11 +4,9 @@ import Products from '~/src/constants/Products';
 
 import { CatalogProvider } from '../contexts/catalogContext';
 
-import CartContainer from './CartContainer';
-
 class CatalogContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: []
     }
@@ -21,7 +19,7 @@ class CatalogContainer extends Component {
   render(){
     return(
       <CatalogProvider value={ this.state.products }>
-        <CartContainer />
+        { this.props.children }
       </CatalogProvider>
     );
   }
