@@ -6,7 +6,7 @@ import ProductCard from './ProductCard';
 const Catalog = ({ children }) => (
   <section className='catalog'>
     {
-      children.map((product, i) =>
+      children.map((product) =>
       <ProductCard {...product} key={product.id}/>)
     }
   </section>

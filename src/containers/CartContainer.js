@@ -47,7 +47,6 @@ class CartContainer extends Component {
 
   render() {
     const { cart } = this.state;
-    const cart_length = cart.length;
 
     return(
       <CartProvider
