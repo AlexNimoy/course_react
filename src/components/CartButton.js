@@ -45,7 +45,7 @@ class CartButton extends Component {
               onDrop={ (e) => this.handleDrop(e, context.buy) }
             >
               <div className='cart__drop_zone-label'>Drop Product here</div>
-              <button>In cart: { context.cart_length }</button>
+              <button>In cart: { context.cart.length }</button>
             </div>
           }
         </CartConsumer>

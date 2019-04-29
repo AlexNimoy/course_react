@@ -1,33 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import CartDetailsItem from './CartDetailsItem';
+import CartDetailsTable from './CartDetailsTable';
+import { CatalogConsumer } from '../contexts/catalogContext';
 
-const CartDetails = ({ children }) => (
-  <table className='cart__reciept' >
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>quantity</th>
-        <th>price</th>
-      </tr>
-    </thead>
-    <tbody>
-    {
-      children.map((item, i) =>
-        <CartDetailsItem {...item} key={i}/>
-      )
+const CartDetails = () => (
+  <CatalogConsumer>
+    {context =>
+      <CartDetailsTable>
+        { context }
+      </CartDetailsTable>
     }
-    </tbody>
-  </table>
+  </CatalogConsumer>
 )
-
-CartDetails.propTypes = {
-  children: PropTypes.arrayOf(
-    PropTypes.shape(
-      CartDetailsItem.propTypes
-    )
-  )
-}
 
 export default CartDetails;

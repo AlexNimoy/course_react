@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 
 import { CartProvider } from '../contexts/cartContext';
-import { CatalogConsumer } from '../contexts/catalogContext';
-
-import CartButton from '~/src/components/CartButton';
-import CartDetails from '~/src/components/CartDetails';
-
-import CatalogPage from '~/src/components/CatalogPage';
-
 
 class CartContainer extends Component {
-  constructor(){
-    super();
+  constructor(prors){
+    super(prors);
     this.state = {
       cart: []
     }
 
     this.buy = this.buy.bind(this);
+    this.productList = this.productList.bind(this);
   }
 
   buy(product_id, product_quantity = 1) {
@@ -58,22 +52,13 @@ class CartContainer extends Component {
     return(
       <CartProvider
         value={{
-          cart_length,
+          cart,
           buy: this.buy,
-          dragStart: this.handleDragStart
+          dragStart: this.handleDragStart,
+          productList: this.productList
         }}
       >
-        <CatalogConsumer>
-          {context =>
-            <CartDetails>
-              { this.productList(context) }
-            </CartDetails>
-          }
-        </CatalogConsumer>
-
-        <CartButton />
-        <CatalogPage />
-
+        { this.props.children }
       </CartProvider>
     );
   }
