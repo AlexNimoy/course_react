@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { CartConsumer } from '../contexts/cartContext';
 
+import { NavLink } from 'react-router-dom';
+
+import { cartPath } from '~/src/helpers/routes';
+
 class CartButton extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +49,9 @@ class CartButton extends Component {
               onDrop={ (e) => this.handleDrop(e, context.buy) }
             >
               <div className='cart__drop_zone-label'>Drop Product here</div>
-              <button>In cart: { context.cart.length }</button>
+              <NavLink to={ cartPath() }>
+                <button>In cart: { context.cart.length }</button>
+              </NavLink>
             </div>
           }
         </CartConsumer>
