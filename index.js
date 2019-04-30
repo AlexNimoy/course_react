@@ -1,25 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Products from './constants/Products';
-import Catalog from './components/Catalog';
-
-class CatalogPage extends Component {
-  constructor() {
-    super();
-    this.state = { products: [] }
-  }
-
-  componentDidMount() {
-    this.setState({ products: Products });
-  }
-
-  render() {
-    return <Catalog products={this.state.products} />;
-  }
-}
+import App from '~/src/components/App';
 
 ReactDOM.render(
-  <CatalogPage />,
+  <App />,
   document.getElementById('root')
 )

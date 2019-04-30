@@ -1,0 +1,38 @@
+.cart__drop_zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 150px;
+  border: 1px solid silver;
+  margin: 3em 0;
+  min-height: 10vh;
+}
+
+.cart__drop_zone.target{
+  border: 2px solid silver;
+  background-color: lemonchiffon;
+}
+
+.cart__drop_zone-label {
+  font-size: 2em;
+}
+
+.cart__reciept {
+  text-align: center;
+}
+
+.catalog {
+  display: flex;
+  align-content: stretch;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product {
+  border: 1px solid silver;
+  display: inline-block;
+  margin:5px;
+}
