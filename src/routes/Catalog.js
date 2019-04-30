@@ -4,5 +4,6 @@ import CatalogPage from '~/src/components/CatalogPage';
 export default {
   path: mainPath(),
   component: CatalogPage,
-  exact: true
+  exact: true,
+  strict: true
 }
