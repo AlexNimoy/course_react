@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+import { productsPath } from '~/src/helpers/routes';
+
 import { CartConsumer } from '../contexts/cartContext';
 
 import Image from './Image';
@@ -12,16 +15,19 @@ const ProductCard = ({ id, price, title, image }) => (
   <Fragment>
     <CartConsumer>
       { context =>
-        <div
-          className='product'
-          draggable
-          onDragStart={ (e) => context.dragStart(e, id) }
-        >
-          <Image {...image} />
-          <Price>{ price }</Price>
-          <TextBox>{ title }</TextBox>
-          <Buy>{id}</Buy>
-        </div>
+
+        <Link to={ productsPath(id) }>
+          <div
+            className='product'
+            draggable
+            onDragStart={ (e) => context.dragStart(e, id) }
+          >
+            <Image {...image} />
+            <Price>{ price }</Price>
+            <TextBox>{ title }</TextBox>
+            <Buy>{id}</Buy>
+          </div>
+        </Link>
       }
     </CartConsumer>
   </Fragment>
