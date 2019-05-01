@@ -32,7 +32,7 @@ class CartContainer extends Component {
 
   renderRedirect() {
     if (this.state.cart.length === 0) {
-      console.log(router.history);
+      // console.log(router.history);
       return <Redirect to='/' />
     }
   }
