@@ -15,19 +15,18 @@ const ProductCard = ({ id, price, title, image }) => (
   <Fragment>
     <CartConsumer>
       { context =>
-
-        <Link to={ productsPath(id) }>
-          <div
-            className='product'
-            draggable
-            onDragStart={ (e) => context.dragStart(e, id) }
-          >
+        <div
+          className='product'
+          draggable
+          onDragStart={ (e) => context.dragStart(e, id) }
+        >
+          <Link to={ productsPath(id) }>
             <Image {...image} />
             <Price>{ price }</Price>
             <TextBox>{ title }</TextBox>
-            <Buy>{id}</Buy>
-          </div>
-        </Link>
+          </Link>
+          <Buy>{id}</Buy>
+        </div>
       }
     </CartConsumer>
   </Fragment>
