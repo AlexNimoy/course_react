@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { CartProvider } from '../contexts/cartContext';
 
@@ -11,6 +12,7 @@ class CartContainer extends Component {
 
     this.buy = this.buy.bind(this);
     this.productList = this.productList.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
   }
 
   buy(product_id, product_quantity = 1) {
@@ -25,6 +27,13 @@ class CartContainer extends Component {
     } else {
       cart[index].quantity += quantity;
       this.setState({ cart });
+    }
+  }
+
+  renderRedirect() {
+    if (this.state.cart.length === 0) {
+      console.log(router.history);
+      return <Redirect to='/' />
     }
   }
 
@@ -54,7 +63,8 @@ class CartContainer extends Component {
           cart,
           buy: this.buy,
           dragStart: this.handleDragStart,
-          productList: this.productList
+          productList: this.productList,
+          blankCartRedirect: this.renderRedirect
         }}
       >
         { this.props.children }
