@@ -1,3 +1,5 @@
+// https://reacttraining.com/react-router/web/example/modal-gallery
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
