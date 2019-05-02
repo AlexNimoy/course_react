@@ -7,7 +7,7 @@ import { CartConsumer } from '../contexts/cartContext';
 const CartDetails = () => (
   <div>
     <CartConsumer>
-      { context => context.blankCartRedirect() }
+      {context => context.blankCartRedirect() }
     </CartConsumer>
 
     <CatalogConsumer>

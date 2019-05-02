@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
 import { CartProvider } from '../contexts/cartContext';
+
+import history from '~/src/helpers/history';
 
 class CartContainer extends Component {
   constructor(prors){
@@ -31,9 +32,8 @@ class CartContainer extends Component {
   }
 
   renderRedirect() {
-    if (this.state.cart.length === 0) {
-      // console.log(router.history);
-      return <Redirect to='/' />
+    if (this.state.cart.length == 0) {
+      history.push('/', 'Cart is empty')
     }
   }
 
