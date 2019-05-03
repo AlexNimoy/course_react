@@ -14,7 +14,7 @@ import history from '~/src/helpers/history';
 
 import CatalogContainer from '~/src/containers/CatalogContainer';
 import CartContainer from '~/src/containers/CartContainer';
-import CartButton from '~/src/components/CartButton';
+import CartButton from '~/src/components/Cart/Button';
 import Notice from '~/src/components/Notice';
 
 const RouteWithSubroutes = (route, index) => (

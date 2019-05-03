@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CartDetailsItem from './CartDetailsItem';
-import { CartConsumer } from '../contexts/cartContext';
+import Item from '~/src/components/Cart/Products/Item';
+import { CartConsumer } from '~/src/contexts/cartContext';
 
-const CartDetailsTable = ({ children }) => (
+const Table = ({ children }) => (
   <table className='cart__reciept' >
     <thead>
       <tr>
@@ -17,7 +17,7 @@ const CartDetailsTable = ({ children }) => (
       {context =>
         <tbody>
           {context.productList(children).map((item, key)=>
-            <CartDetailsItem {...item} key={key} />
+            <Item {...item} key={key} />
           )}
         </tbody>
       }
@@ -25,12 +25,12 @@ const CartDetailsTable = ({ children }) => (
   </table>
 )
 
-CartDetailsTable.propTypes = {
+Table.propTypes = {
   children: PropTypes.arrayOf(
     PropTypes.shape(
-      CartDetailsItem.propTypes
+      Item.propTypes
     )
   )
 }
 
-export default CartDetailsTable;
+export default Table;

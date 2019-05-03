@@ -1,8 +1,8 @@
 import { cartPath } from "~/src/helpers/routes";
-import CartDetails from '~/src/components/CartDetails';
+import Cart from '~/src/components/Cart';
 
 export default {
   path: cartPath(),
-  component: CartDetails,
+  component: Cart,
   exact: true
 }

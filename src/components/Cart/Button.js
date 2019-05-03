@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { CartConsumer } from '../contexts/cartContext';
+import { CartConsumer } from '~/src/contexts/cartContext';
 
 import { Link } from 'react-router-dom';
 
 import { cartPath } from '~/src/helpers/routes';
 
-class CartButton extends Component {
+class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,4 +60,4 @@ class CartButton extends Component {
   }
 }
 
-export default CartButton;
+export default Button;
