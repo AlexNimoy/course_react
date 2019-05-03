@@ -1,13 +1,9 @@
-import { later } from '~/src/Delay';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const arr = [later(1000), later(5000)];
+import App from '~/src/App';
 
-later(10000)
-  .then(() => {
-    console.log('Done');
-  })
-  .catch((e) => console.log('error', e))
-
-Promise
-  .all(arr)
-  .then((resultArray) => console.log('all done', resultArray))
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
