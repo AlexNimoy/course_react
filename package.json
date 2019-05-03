@@ -10,6 +10,7 @@
   "author": "Aectann",
   "license": "ISC",
   "dependencies": {
+    "c3": "^0.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "superagent": "^5.0.2"

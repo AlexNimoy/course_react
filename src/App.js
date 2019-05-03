@@ -1,40 +1,28 @@
 import React, { Component } from 'react';
 
+import c3 from 'c3';
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { stateProp: 'oldValue' }
+    this.data = [
+      ['data1', 1, 2, 3, 4, 5],
+      ['data2', 2, 3, 4, 5, 6]
+    ]
+
+    this.chatRef = React.createRef();
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
-  }
-
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('getSnapshotBeforeUpdate', prevProps, prevState);
-    return null;
-  }
-
-  static getDerivedStateFromProps(prev, state) {
-    console.log('getDerivedStateFromProps', prev, state);
-    return state;
-  }
-
-  shouldComponentUpdate() {
-    console.log(this.shouldComponentUpdate);
-    return true;
-  }
-
-  componentDidUpdate() {
-    console.log(this.shouldComponentUpdate);
-    return true;
+    c3.generate({
+      bindto: this.chatRef.current,
+      data: { columns: this.data }
+    })
   }
 
   render() {
     return (
-      <button onClick={() => this.setState({ stateProp: 'newValue' })}>
-        Click Me
-      </button>
+      <div ref={this.chatRef}></div>
     )
   }
 }
