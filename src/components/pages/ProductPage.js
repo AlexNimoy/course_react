@@ -9,7 +9,7 @@ const ProductPage = ({ id }) => (
   <CatalogConsumer>
     { context =>
       context.filter(x => x.id == id).map((product) =>
-        <div className="poroduct_info" key={ product.id }>
+        <div className="product_info" key={ product.id }>
           <Image {...product.image} />
           <Price>{ product.price }</Price>
           <TextBox>{ product.title }</TextBox>

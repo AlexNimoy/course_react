@@ -5,8 +5,8 @@ import { CartProvider } from '../contexts/cartContext';
 import history from '~/src/helpers/history';
 
 class CartContainer extends Component {
-  constructor(prors){
-    super(prors);
+  constructor(props){
+    super(props);
     this.state = {
       cart: []
     }
