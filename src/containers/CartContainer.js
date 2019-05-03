@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 
 import { CartProvider } from '../contexts/cartContext';
 
+import history from '~/src/helpers/history';
+
 class CartContainer extends Component {
-  constructor(prors){
-    super(prors);
+  constructor(props){
+    super(props);
     this.state = {
       cart: []
     }
 
     this.buy = this.buy.bind(this);
     this.productList = this.productList.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
   }
 
   buy(product_id, product_quantity = 1) {
@@ -25,6 +28,12 @@ class CartContainer extends Component {
     } else {
       cart[index].quantity += quantity;
       this.setState({ cart });
+    }
+  }
+
+  renderRedirect() {
+    if (this.state.cart.length == 0) {
+      history.push('/', 'Cart is empty')
     }
   }
 
@@ -54,7 +63,8 @@ class CartContainer extends Component {
           cart,
           buy: this.buy,
           dragStart: this.handleDragStart,
-          productList: this.productList
+          productList: this.productList,
+          blankCartRedirect: this.renderRedirect
         }}
       >
         { this.props.children }

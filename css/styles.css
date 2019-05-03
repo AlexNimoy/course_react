@@ -36,3 +36,19 @@
   display: inline-block;
   margin:5px;
 }
+
+.notice {
+  background-color: #727272;
+  color: white;
+  opacity: .9;
+  zoom: 1;
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+  min-height: 40px;
+}

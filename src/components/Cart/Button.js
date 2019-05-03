@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { CartConsumer } from '../contexts/cartContext';
+import { CartConsumer } from '~/src/contexts/cartContext';
 
-class CartButton extends Component {
+import { Link } from 'react-router-dom';
+
+import { cartPath } from '~/src/helpers/routes';
+
+class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +49,9 @@ class CartButton extends Component {
               onDrop={ (e) => this.handleDrop(e, context.buy) }
             >
               <div className='cart__drop_zone-label'>Drop Product here</div>
-              <button>In cart: { context.cart.length }</button>
+              <Link to={ cartPath() }>
+                <button>In cart: { context.cart.length }</button>
+              </Link>
             </div>
           }
         </CartConsumer>
@@ -54,4 +60,4 @@ class CartButton extends Component {
   }
 }
 
-export default CartButton;
+export default Button;
