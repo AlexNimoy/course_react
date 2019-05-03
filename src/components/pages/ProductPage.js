@@ -1,9 +1,9 @@
 import React from 'react';
 import { CatalogConsumer } from '~/src/contexts/catalogContext';
 
-import Image from '~/src/components/Image';
-import Price from '~/src/components/Price';
-import TextBox from '~/src/components/TextBox';
+import Image from '~/src/components/ProductCard/Image';
+import Price from '~/src/components/ProductCard/Price';
+import TextBox from '~/src/components/ProductCard/TextBox';
 
 const ProductPage = ({ id }) => (
   <CatalogConsumer>

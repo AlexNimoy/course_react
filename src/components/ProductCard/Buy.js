@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { CartConsumer } from '../contexts/cartContext';
+import { CartConsumer } from '~/src/contexts/cartContext';
 
 class Buy extends Component {
   constructor(props) {
