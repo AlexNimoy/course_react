@@ -3,6 +3,6 @@ export const later = (delay) => {
     if(typeof delay != 'number')
       reject('Bad delay');
     else
-      setTimeout(resolve, delay);
+      setTimeout(() => resolve(delay), delay);
   })
 }
