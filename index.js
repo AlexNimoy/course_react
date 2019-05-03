@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { later } from '~/src/Delay';
 
-import Modal from './src/Modal';
-
-ReactDOM.render(
-  <Modal />,
-  document.getElementById('root')
-)
+later(5000)
+  .then(() => {
+    console.log('Done');
+  })
+  .catch((e) => console.log('error', e))
