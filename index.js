@@ -1,28 +1,62 @@
-const express = require('express');
+import _, { flowRight } from 'lodash';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider, connect } from 'react-redux';
 
-require('@babel/register');
-require('@babel/polyfill');
+const { get } = _;
 
-const render = require('./render').default;
-
-const app = express();
-
-app.get('/', async (_, res) => {
-  const response = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Course React</title>
-    </head>
-    <body>
-      <div id="root">${await render()}</div>
-    </body>
-    </html>
-  `;
-  res.send(response);
+const deposit = (value) => ({
+  type: 'DEPOSIT',
+  value
 });
 
-app.listen(3001, () => { console.log('Server started, port 3001') })
+const withdraw = (value) => ({
+  type: 'WITHDRAW',
+  value
+});
+
+const balance = (state = 0, action) => {
+  switch(action.type) {
+    case 'DEPOSIT':
+      return state + get(action, 'value', 0)
+    case 'WITHDRAW':
+      return state - get(action, 'value', 0)
+    default:
+      return state;
+  }
+}
+
+const store = createStore(balance);
+
+const Deposit = ({ value, deposit, withdraw }) => (
+  <Provider store={store}>
+    <div>
+      <span>Balance: ${value}</span>
+      <br/>
+      <button onClick={() => deposit(10)}>Deposit $10</button>
+      <br />
+      <button onClick={() => withdraw(10)}>Withdraw $10</button>
+    </div>
+  </Provider>
+)
+
+const stateToProps = (state) => ({
+  value: state
+});
+
+const actionsToProps = (dispatch) => ({
+  deposit: flowRight(dispatch, deposit),
+  withdraw: flowRight(dispatch, withdraw)
+})
+
+const DepositContainer = connect(stateToProps, actionsToProps)(Deposit);
+
+export default Deposit;
+
+ReactDOM.render(
+  <Provider store={store}>
+    <DepositContainer/>
+  </Provider>,
+  document.getElementById('root')
+)
