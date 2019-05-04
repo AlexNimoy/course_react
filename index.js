@@ -1,7 +1,7 @@
 import _, { flowRight } from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
 
 const { get } = _;
@@ -27,7 +27,7 @@ const balance = (state = 0, action) => {
   }
 }
 
-const store = createStore(balance);
+const store = createStore(combineReducers({balance}));
 
 const Deposit = ({ value, deposit, withdraw }) => (
   <Provider store={store}>
@@ -42,7 +42,7 @@ const Deposit = ({ value, deposit, withdraw }) => (
 )
 
 const stateToProps = (state) => ({
-  value: state
+  value: state.balance
 });
 
 const actionsToProps = (dispatch) => ({
