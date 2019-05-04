@@ -1,7 +1,7 @@
 import _, { flowRight } from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider, connect } from 'react-redux';
 
 const { get } = _;
@@ -27,7 +27,14 @@ const balance = (state = 0, action) => {
   }
 }
 
-const store = createStore(combineReducers({balance}));
+const logger = (store) => (next) => (action) => {
+  console.log('start action', action);
+  next(action);
+  console.log('end action', action);
+}
+
+const store = createStore(combineReducers({balance}),
+  applyMiddleware(logger));
 
 const Deposit = ({ value, deposit, withdraw }) => (
   <Provider store={store}>
