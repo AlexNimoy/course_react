@@ -1,16 +1,16 @@
 import React from 'react';
 import { CatalogConsumer } from '~/src/contexts/catalogContext';
 
-import Image from '~/src/components/ProductCard/Image';
-import Price from '~/src/components/ProductCard/Price';
-import TextBox from '~/src/components/ProductCard/TextBox';
+import GalleryLayout from '~/src/components/shared/Gallery';
+import Price from '~/src/components/shared/ProductCard/Price';
+import TextBox from '~/src/components/shared/ProductCard/TextBox';
 
-const ProductPage = ({ id }) => (
+const Product = ({ id }) => (
   <CatalogConsumer>
     { context =>
       context.filter(x => x.id == id).map((product) =>
         <div className="product_info" key={ product.id }>
-          <Image {...product.image} />
+          <GalleryLayout>{ product.images }</GalleryLayout>
           <Price>{ product.price }</Price>
           <TextBox>{ product.title }</TextBox>
         </div>
@@ -19,4 +19,4 @@ const ProductPage = ({ id }) => (
   </CatalogConsumer>
 );
 
-export default ProductPage;
+export default Product;

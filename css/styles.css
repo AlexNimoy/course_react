@@ -52,3 +52,12 @@
   border-radius: 5px;
   min-height: 40px;
 }
+
+.prewiew__image {
+  cursor: pointer;
+  margin: 1em;
+}
+
+.gallery__big-image{
+  display: inline-block;
+}

@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Things",
+      "price": 100,
+      "selected": true,
+      "images": [
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336192/samples/ecommerce/accessories-bag.jpg",
+          "alt": "Things"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/leather-bag-gray.jpg",
+          "alt": "Bag"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/car-interior-design.jpg",
+          "alt": "Rudder"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336183/samples/ecommerce/analog-classic.jpg",
+          "alt": "Watch"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bag",
+      "price": 100,
+      "selected": true,
+      "images": [
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/leather-bag-gray.jpg",
+          "alt": "Bag"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336192/samples/ecommerce/accessories-bag.jpg",
+          "alt": "Things"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/car-interior-design.jpg",
+          "alt": "Rudder"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336183/samples/ecommerce/analog-classic.jpg",
+          "alt": "Watch"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Rudder",
+      "price": 100,
+      "selected": false,
+      "images": [
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/car-interior-design.jpg",
+          "alt": "Rudder"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336192/samples/ecommerce/accessories-bag.jpg",
+          "alt": "Things"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/leather-bag-gray.jpg",
+          "alt": "Bag"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336183/samples/ecommerce/analog-classic.jpg",
+          "alt": "Watch"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Watch",
+      "price": 100,
+      "selected": true,
+      "images": [
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336183/samples/ecommerce/analog-classic.jpg",
+          "alt": "Watch"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336192/samples/ecommerce/accessories-bag.jpg",
+          "alt": "Things"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/leather-bag-gray.jpg",
+          "alt": "Bag"
+        },
+        {
+          "imageUrl": "https://res.cloudinary.com/aectann/image/upload/v1557336191/samples/ecommerce/car-interior-design.jpg",
+          "alt": "Rudder"
+        }
+      ]
+    }
+  ]
+}

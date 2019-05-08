@@ -1,9 +1,9 @@
 import { mainPath } from "~/src/helpers/routes";
-import CatalogPage from '~/src/components/CatalogPage';
+import Catalog from '~/src/components/pages/Catalog';
 
 export default {
   path: mainPath(),
-  component: CatalogPage,
+  component: Catalog,
   exact: true,
   strict: true
 }
