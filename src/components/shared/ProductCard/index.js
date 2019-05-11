@@ -6,10 +6,10 @@ import { productsPath } from '~/src/helpers/routes';
 
 import { CartConsumer } from '~/src/contexts/cartContext';
 
-import Image from '~/src/components/shared/ProductCard/Image';
-import TextBox from '~/src/components/shared/ProductCard/TextBox';
-import Price from '~/src/components/shared/ProductCard/Price';
-import Buy from '~/src/components/shared/ProductCard/Buy';
+import Image from './Image';
+import TextBox from './TextBox';
+import Price from './Price';
+import Buy from './Buy';
 
 const ProductCard = ({ id, price, title, images }) => (
   <Fragment>

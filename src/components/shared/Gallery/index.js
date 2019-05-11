@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Gallery from '~/src/components/shared/Gallery/Gallery';
-import Modal from '~/src/components/shared/Gallery/Modal';
+import Gallery from './Gallery';
+import Modal from './Modal';
 
 class GalleryLayout extends Component {
   constructor(props) {

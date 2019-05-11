@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Images from '~/src/components/shared/Gallery/Images';
+import Images from './Images';
 import Image from '~/src/components/shared/ProductCard/Image';
 
 class Gallery extends Component {

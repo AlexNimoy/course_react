@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Item from '~/src/components/pages/Cart/Products/Item';
+import Item from './Item';
 import { CartConsumer } from '~/src/contexts/cartContext';
 
 const Table = ({ children }) => (

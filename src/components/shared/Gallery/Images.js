@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import PreviewImage from '~/src/components/shared/Gallery/PreviewImage';
+import PreviewImage from './PreviewImage';
 
 const Images = ({ children, handle }) => (
   <Fragment>

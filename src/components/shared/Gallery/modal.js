@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Gallery from '~/src/components/shared/Gallery/Gallery';
+import Gallery from './Gallery';
 
 import '~/css/Modal';
 

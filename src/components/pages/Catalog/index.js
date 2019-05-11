@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { CatalogConsumer } from '~/src/contexts/catalogContext';
-import Catalog from '~/src/components/pages/Catalog/Catalog';
+import Catalog from './Catalog';
 import Slides from '~/src/components/shared/Slides';
 
 const CatalogPage = () => (

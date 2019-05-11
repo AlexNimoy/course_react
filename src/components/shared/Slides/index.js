@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Slide from '~/src/components/shared/Slides/Slide';
+import Slide from './Slide';
 
 class Slides extends Component {
   constructor(props) {
