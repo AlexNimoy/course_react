@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ProductCard from '~/src/components/shared/ProductCard';
 
-const Catalog = ({ children }) => (
-  <section className='catalog'>
-    {
-      children.map((product) =>
-      <ProductCard {...product} key={product.id}/>)
-    }
-  </section>
-);
+class Catalog extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchProducts()
+  }
+
+  render() {
+    const { items } = this.props;
+
+    return(
+      <section className='catalog'>
+        { items.data &&
+          items.data.map((product) =>
+          <ProductCard {...product} key={product.id}/>)
+        }
+      </section>
+    );
+  }
+}
 
 Catalog.propTypes = {
   children: PropTypes.arrayOf(
