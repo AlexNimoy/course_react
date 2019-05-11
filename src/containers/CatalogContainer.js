@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
-import Products from '~/src/constants/Products';
-
 import { CatalogProvider } from '../contexts/catalogContext';
+
+import requst from 'superagent';
+
+const url = {
+  host: 'http://localhost:8085'
+};
 
 class CatalogContainer extends Component {
   constructor(props) {
@@ -13,7 +17,9 @@ class CatalogContainer extends Component {
   }
 
   componentDidMount() {
-    this.setState({ products: Products });
+    requst
+      .get(`${url.host}/products`)
+      .then((res) => this.setState({products: res.body.data}))
   }
 
   render(){

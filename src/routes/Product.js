@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { productsPath } from "~/src/helpers/routes";
-import ProductPage from "~/src/components/pages/ProductPage";
+import Product from "~/src/components/pages/Product";
 
 export default {
   path: productsPath(),
   render: ({ match }) => (
-    <ProductPage id={ match.params.id } />
+    <Product id={ match.params.id } />
   )
 }

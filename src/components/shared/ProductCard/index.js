@@ -6,12 +6,12 @@ import { productsPath } from '~/src/helpers/routes';
 
 import { CartConsumer } from '~/src/contexts/cartContext';
 
-import Image from '~/src/components/ProductCard/Image';
-import TextBox from '~/src/components/ProductCard/TextBox';
-import Price from '~/src/components/ProductCard/Price';
-import Buy from '~/src/components/ProductCard/Buy';
+import Image from './Image';
+import TextBox from './TextBox';
+import Price from './Price';
+import Buy from './Buy';
 
-const ProductCard = ({ id, price, title, image }) => (
+const ProductCard = ({ id, price, title, images }) => (
   <Fragment>
     <CartConsumer>
       { context =>
@@ -21,7 +21,7 @@ const ProductCard = ({ id, price, title, image }) => (
           onDragStart={ (e) => context.dragStart(e, id) }
         >
           <Link to={ productsPath(id) }>
-            <Image {...image} />
+            <Image { ...images[0] } />
             <Price>{ price }</Price>
             <TextBox>{ title }</TextBox>
           </Link>
@@ -36,7 +36,9 @@ ProductCard.propTypes = {
   id: Buy.propTypes.children,
   price: Price.propTypes.children,
   title: TextBox.propTypes.children,
-  image: PropTypes.shape(Image.propTypes)
+  images: PropTypes.arrayOf(
+    PropTypes.shape(Image.propTypes)
+  )
 }
 
 export default ProductCard;

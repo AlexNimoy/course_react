@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 
-import {
-  Router,
-  Switch, Route, NavLink
-} from 'react-router-dom';
-
-import {
-  mainPath, contactPath
-} from '~/src/helpers/routes';
+import { Router, Switch, Route } from 'react-router-dom';
 
 import routes from '~/src/routes';
 import history from '~/src/helpers/history';
 
 import CatalogContainer from '~/src/containers/CatalogContainer';
 import CartContainer from '~/src/containers/CartContainer';
-import CartButton from '~/src/components/Cart/Button';
-import Notice from '~/src/components/Notice';
+import CartButton from '~/src/components/pages/Cart/Button';
+import Notice from '~/src/components/shared/Notice';
+import Layout from '~/src/components/shared/Layout';
 
 const RouteWithSubroutes = (route, index) => (
   <Route {...route} key={index} />
@@ -42,19 +36,17 @@ class App extends Component {
 
     return(
       <Router history={ history }>
-        <ul>
-          <li><NavLink to={ mainPath() }>Main</NavLink></li>
-          <li><NavLink to={ contactPath() }>Contact</NavLink></li>
-        </ul>
-        <CatalogContainer>
-          <CartContainer>
-            <Notice>{ notice }</Notice>
-            <CartButton />
-            <Switch>
-              {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
-            </Switch>
-          </CartContainer>
-        </CatalogContainer>
+        <Layout>
+          <CatalogContainer>
+            <CartContainer>
+              <Notice>{ notice }</Notice>
+              <CartButton />
+              <Switch>
+                {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
+              </Switch>
+            </CartContainer>
+          </CatalogContainer>
+        </Layout>
       </Router>
     );
   }

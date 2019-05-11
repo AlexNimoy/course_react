@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Products from '~/src/components/Cart/Products';
+import Products from '~/src/components/pages/Cart/Products';
 import { CatalogConsumer } from '~/src/contexts/catalogContext';
 import { CartConsumer } from '~/src/contexts/cartContext';
 

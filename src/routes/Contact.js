@@ -1,8 +1,8 @@
 import { contactPath } from "~/src/helpers/routes";
-import ContactPage from '~/src/components/pages/ContactPage';
+import Contact from '~/src/components/pages/Contact';
 
 export default {
   path: contactPath(),
-  component: ContactPage,
+  component: Contact,
   exact: true
 }
