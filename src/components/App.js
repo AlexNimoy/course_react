@@ -6,9 +6,7 @@ import routes from '~/src/routes';
 import history from '~/src/helpers/history';
 import store from '~/src/store';
 
-import CatalogContainer from '~/src/containers/CatalogContainer';
-import CartContainer from '~/src/containers/CartContainer';
-import CartButton from '~/src/components/pages/Cart/Button';
+import CartSection from '~/src/components/pages/Cart/Section';
 import Notice from '~/src/components/shared/Notice';
 import Layout from '~/src/components/shared/Layout';
 
@@ -38,15 +36,11 @@ class App extends Component {
       <Provider store={store}>
         <Router history={ history }>
           <Layout>
-            <CatalogContainer>
-              <CartContainer>
-                <Notice>{ notice }</Notice>
-                <CartButton />
-                <Switch>
-                  {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
-                </Switch>
-              </CartContainer>
-            </CatalogContainer>
+            <Notice>{ notice }</Notice>
+            <CartSection/>
+            <Switch>
+              {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
+            </Switch>
           </Layout>
         </Router>
       </Provider>

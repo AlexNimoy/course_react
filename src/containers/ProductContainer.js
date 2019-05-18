@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { fetchProducts } from '~/src/actions/Products';
-import  Catalog from '~/src/components/pages/Catalog/Catalog';
+import  Product from '~/src/components/pages/Product/Product';
 
 const stateToProps = (state) => ({
   items: state.products.entries,
@@ -12,4 +12,4 @@ const actionsToProps = (dispatch) => ({
   fetchProducts: () => dispatch(fetchProducts())
 });
 
-export default connect(stateToProps, actionsToProps)(Catalog);
+export default connect(stateToProps, actionsToProps)(Product);

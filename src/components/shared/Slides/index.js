@@ -14,8 +14,10 @@ class Slides extends Component {
   }
 
   static getDerivedStateFromProps(props, _) {
-    const selected_slides = props.children
-      .filter(s => s.selected === true)
+    const { items } = props;
+    const slides = items.data ? items.data : [];
+
+    const selected_slides = slides.filter(s => s.selected === true)
     return{
       slides: selected_slides
     }
@@ -35,6 +37,7 @@ class Slides extends Component {
   }
 
   componentDidMount() {
+    this.props.fetchProducts();
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -52,14 +55,16 @@ class Slides extends Component {
 
   listImages(direction) {
     const { current_slide, slides } = this.state;
+    const slides_length = slides.length;
+
     let next = '';
 
     if(direction === 'left') {
-      next = (current_slide > 1) ? current_slide - 1 : slides.length;
+      next = (current_slide > 1) ? current_slide - 1 : slides_length;
     }
 
     if(direction === 'right') {
-      next = (current_slide < slides.length) ? current_slide + 1 : 1;
+      next = (current_slide < slides_length) ? current_slide + 1 : 1;
     }
 
     this.setState({ current_slide: next})
@@ -67,10 +72,11 @@ class Slides extends Component {
 
   render() {
     const { current_slide, slides } = this.state;
+    const slide = slides[current_slide - 1];
 
     return(
       <div className="slides-layout">
-        <Slide { ...slides[current_slide - 1] } />
+        <Slide { ...slide } />
         <button onClick={ () => this.handleLeft() }>&larr;</button>
         <button onClick={ () => this.handleRight() }>&rarr;</button>
       </div>

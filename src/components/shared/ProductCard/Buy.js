@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { CartConsumer } from '~/src/contexts/cartContext';
+import AddToCartButton from '~/src/containers/CartAddContainer';
 
 class Buy extends Component {
   constructor(props) {
@@ -31,17 +31,11 @@ class Buy extends Component {
           value={ quantity }
         />
 
-        <CartConsumer>
-          {context =>
-            <button
-              onClick={() =>
-                context.buy(children, quantity)
-              }
-            >
-              Buy
-            </button>
-          }
-        </CartConsumer>
+        <AddToCartButton
+          quantity={ quantity }
+        >
+          { children }
+        </AddToCartButton>
       </div>
     )
   }
