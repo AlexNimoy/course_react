@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import CartButtonContainer from '~/src/containers/CartButtonContainer';
 
@@ -25,14 +25,14 @@ class Section extends Component {
     e.dataTransfer.dropEffect = 'copy';
   }
 
-  handleDrop(e, func) {
-    func(e.dataTransfer.getData('text/plain'));
+  handleDrop(e) {
+    this.props.addToCart(e.dataTransfer.getData('text/plain'));
     this.setState({ hover: false });
   }
 
   render() {
     let cartClass = ['cart__drop_zone'];
-    if(this.state.hover) { cartClass.push('target') }
+    if(this.state.hover) { cartClass.push('target') };
 
     return(
       <div
@@ -40,7 +40,7 @@ class Section extends Component {
         onDragEnter={ this.handleDragEnter }
         onDragLeave={ this.handleDragLeave }
         onDragOver={ this.handleDragOver }
-        // onDrop={ (e) => this.handleDrop(e, context.buy) }
+        onDrop={ (e) => this.handleDrop(e) }
       >
         <div className='cart__drop_zone-label'>Drop Product here</div>
         <CartButtonContainer/>
