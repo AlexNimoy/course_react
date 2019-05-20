@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Item = ({quantity, product}) => (
+const Product = ({quantity, product}) => (
   <tr>
     <td>{ product.title }</td>
     <td>{ quantity }</td>
@@ -9,7 +9,7 @@ const Item = ({quantity, product}) => (
   </tr>
 )
 
-Item.propTypes = {
+Product.propTypes = {
   quantity: PropTypes.number,
   product: PropTypes.shape({
     price: PropTypes.number.isRequired,
@@ -17,4 +17,4 @@ Item.propTypes = {
   })
 }
 
-export default Item;
+export default Product;

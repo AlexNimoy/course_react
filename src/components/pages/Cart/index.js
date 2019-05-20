@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react';
 
-import CartDetailsContainer from '~/src/containers/CartDetailsContainer';
+import CartDetails from './widgets/Products';
 import { Redirect } from 'react-router-dom';
 
 class Cart extends Component {
@@ -19,7 +19,7 @@ class Cart extends Component {
     return(
       <Fragment>
         { this.renderRedirect() }
-        <CartDetailsContainer/>
+        <CartDetails/>
       </Fragment>
     )
   }

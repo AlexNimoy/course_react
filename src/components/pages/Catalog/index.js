@@ -1,14 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import CatalogContainer from '~/src/containers/CatalogContainer';
-import SlidesContainer from '~/src/containers/SlidesContainer';
+import List from './widgets/List';
+import Slides from './widgets/Slides';
 
 const CatalogPage = () => (
   <div className='catalog-page'>
-    <Fragment>
-      <SlidesContainer/>
-      <CatalogContainer/>
-    </Fragment>
+    <Slides/>
+    <List/>
   </div>
 )
 

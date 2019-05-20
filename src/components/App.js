@@ -6,7 +6,7 @@ import routes from '~/src/routes';
 import history from '~/src/helpers/history';
 import store from '~/src/store';
 
-import CartSectionContainer from '~/src/containers/CartSectionContainer';
+import CartSection from '~/src/components/pages/Cart/widgets/Section';
 import Notice from '~/src/components/shared/Notice';
 import Layout from '~/src/components/shared/Layout';
 
@@ -37,7 +37,7 @@ class App extends Component {
         <Router history={ history }>
           <Layout>
             <Notice>{ notice }</Notice>
-            <CartSectionContainer/>
+            <CartSection/>
             <Switch>
               {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
             </Switch>

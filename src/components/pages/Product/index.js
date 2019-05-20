@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductContainer from '~/src/containers/ProductContainer';
+import ProductDetails from './widgets/Product';
 
 const Product = ({ id }) => (
-  <ProductContainer>{ id }</ProductContainer>
+  <ProductDetails>{ id }</ProductDetails>
 );
 
 export default Product;

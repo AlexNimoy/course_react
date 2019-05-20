@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CartButtonContainer from '~/src/containers/CartButtonContainer';
+import CartButton from '~/src/components/pages/Cart/widgets/CartButton';
 
 class Section extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class Section extends Component {
         onDrop={ (e) => this.handleDrop(e) }
       >
         <div className='cart__drop_zone-label'>Drop Product here</div>
-        <CartButtonContainer/>
+        <CartButton/>
       </div>
     );
   }

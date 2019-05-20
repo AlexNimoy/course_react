@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import AddToCartButton from '~/src/containers/CartAddContainer';
+import AddToCartButton from '~/src/components/shared/widgets/AddToCartButton';
 
 class Buy extends Component {
   constructor(props) {
