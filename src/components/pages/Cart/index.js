@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { Fragment, Component } from 'react';
 
-import Products from '~/src/components/pages/Cart/Products';
-import { CatalogConsumer } from '~/src/contexts/catalogContext';
-import { CartConsumer } from '~/src/contexts/cartContext';
+import CartDetails from './widgets/Products';
+import { Redirect } from 'react-router-dom';
 
-const Cart = () => (
-  <div>
-    <CartConsumer>
-      {context => context.blankCartRedirect() }
-    </CartConsumer>
+class Cart extends Component {
+  renderRedirect() {
+    if (this.props.items.length === 0) {
+      return (
+        <Redirect to={{
+          pathname: '/',
+          state: 'Cart is empty'
+        }}/>
+      )
+    }
+  }
 
-    <CatalogConsumer>
-      {context =>
-        <Products>
-          { context }
-        </Products>
-      }
-    </CatalogConsumer>
-  </div>
-)
+  render() {
+    return(
+      <Fragment>
+        { this.renderRedirect() }
+        <CartDetails/>
+      </Fragment>
+    )
+  }
+}
 
 export default Cart;

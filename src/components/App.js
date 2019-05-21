@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-
 import { Router, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import routes from '~/src/routes';
 import history from '~/src/helpers/history';
+import store from '~/src/store';
 
-import CatalogContainer from '~/src/containers/CatalogContainer';
-import CartContainer from '~/src/containers/CartContainer';
-import CartButton from '~/src/components/pages/Cart/Button';
+import CartSection from '~/src/components/pages/Cart/widgets/Section';
 import Notice from '~/src/components/shared/Notice';
 import Layout from '~/src/components/shared/Layout';
 
@@ -33,21 +32,18 @@ class App extends Component {
 
   render() {
     const { notice } = this.state;
-
     return(
-      <Router history={ history }>
-        <Layout>
-          <CatalogContainer>
-            <CartContainer>
-              <Notice>{ notice }</Notice>
-              <CartButton />
-              <Switch>
-                {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
-              </Switch>
-            </CartContainer>
-          </CatalogContainer>
-        </Layout>
-      </Router>
+      <Provider store={store}>
+        <Router history={ history }>
+          <Layout>
+            <Notice>{ notice }</Notice>
+            <CartSection/>
+            <Switch>
+              {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
+            </Switch>
+          </Layout>
+        </Router>
+      </Provider>
     );
   }
 }
