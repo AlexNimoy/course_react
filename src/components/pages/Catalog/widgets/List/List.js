@@ -4,14 +4,6 @@ import PropTypes from 'prop-types';
 import ProductCard from '~/src/components/shared/ProductCard';
 
 class Catalog extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  componentDidMount() {
-    this.props.fetchProducts()
-  }
-
   render() {
     const { items } = this.props;
 

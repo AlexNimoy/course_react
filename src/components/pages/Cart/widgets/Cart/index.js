@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import Cart from '~/src/components/pages/Cart';
+import Cart from './Cart';
 
 const stateToProps = (state) => ({
   items: state.cart.entries

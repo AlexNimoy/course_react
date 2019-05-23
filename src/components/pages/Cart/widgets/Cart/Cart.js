@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react';
 
-import CartDetails from './widgets/Products';
+import CartDetails from '../Products';
 import { Redirect } from 'react-router-dom';
 
 class Cart extends Component {

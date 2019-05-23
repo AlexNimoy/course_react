@@ -4,10 +4,6 @@ import Price from '~/src/components/shared/ProductCard/Price';
 import TextBox from '~/src/components/shared/ProductCard/TextBox';
 import AddToCartButton from '~/src/components/shared/widgets/AddToCartButton';
 class Product extends Component {
-  componentDidMount() {
-    this.props.fetchProducts()
-  }
-
   render() {
     const { product } = this.props;
 

@@ -1,11 +1,11 @@
 import * as types from '~/src/constants/actionTypes/CartActionTypes';
 
-const actionAddToCart = (id, quantity) => ({
+export const addToCart = (id, quantity) => ({
   type: types.ADD_TO_CART,
   id,
   quantity
 });
 
-export const addToCart = (id, quantity) => {
-  return (dispatch) => dispatch(actionAddToCart(id, quantity));
-}
+export const loadFromLocalStorage = () => ({
+  type: types.LOAD_FROM_LOCAL_STORAGE
+});
