@@ -9,8 +9,8 @@ export default store => next => action => {
       return next(assign({}, action, { local_storage: loadState() }));
     case types.ADD_TO_CART:
       next(action);
-      const store_data = store.getState();
-      const cart = store_data.cart.entries;
+      const storeData = store.getState();
+      const cart = storeData.cart.entries;
       saveState(cart);
       return null;
     default:

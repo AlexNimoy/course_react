@@ -25,8 +25,8 @@ const Cart = (state = initialState, action)  => {
       const cart = buy(action.id, state.entries, action.quantity);
       return assign({} , initialState, { entries: cart });
     case types.LOAD_FROM_LOCAL_STORAGE:
-      const local_storage_cart = action.local_storage || [];
-      return assign({} , state, { entries: local_storage_cart });
+      const localStorageCart = action.local_storage || [];
+      return assign({} , state, { entries: localStorageCart });
     default:
       return state;
   }
