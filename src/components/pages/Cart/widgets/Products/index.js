@@ -5,7 +5,7 @@ import Products from './Products';
 
 const productList = state => {
   const cart = state.cart.entries;
-  const products = state.products.entries.data;
+  const products = state.products.entries.data || [];
 
   return (
     cart.map((item) =>

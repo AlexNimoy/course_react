@@ -15,7 +15,7 @@ const Products = (state = initialState, action)  => {
     case types.FETCH_PRODUCTS_FAILURE:
       return assign({}, initialState, { error: true });
     case types.FETCH_PRODUCTS_SUCCESS:
-      return assign({} , initialState, { entries: action.res })
+      return assign({} , initialState, { entries: action.response })
     default:
       return state;
   }

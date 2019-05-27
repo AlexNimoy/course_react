@@ -15,6 +15,7 @@ class Slides extends Component {
 
   static getDerivedStateFromProps(props, _) {
     const { items } = props;
+
     const slides = items.data ? items.data : [];
 
     const selected_slides = slides.filter(s => s.selected === true)
@@ -37,7 +38,6 @@ class Slides extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchProducts();
     this.interval = setInterval(() => this.tick(), 1000);
   }
 

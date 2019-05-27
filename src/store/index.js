@@ -1,13 +1,20 @@
 import {
-  createStore, applyMiddleware
+  createStore, applyMiddleware, compose
 } from 'redux';
 
-import thunk from 'redux-thunk';
+import APIMiddleware from '~/src/middleware/API';
+import LocalStorage from '~/src/middleware/LocalStorage';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import reducers from '~/src/reducers';
 
 const store = createStore(
   reducers,
-  applyMiddleware(thunk)
+  composeWithDevTools(
+    applyMiddleware(
+      APIMiddleware,
+      LocalStorage
+    )
+  )
 );
 
 export default store;

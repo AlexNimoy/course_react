@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, matchPath } from 'react-router-dom';
 import { Provider } from 'react-redux';
+
+import historyCb from '~/src/helpers/historyCb';
+import { loadFromLocalStorage } from '~/src/actions/Cart';
 
 import routes from '~/src/routes';
 import history from '~/src/helpers/history';
@@ -9,6 +12,9 @@ import store from '~/src/store';
 import CartSection from '~/src/components/pages/Cart/widgets/Section';
 import Notice from '~/src/components/shared/Notice';
 import Layout from '~/src/components/shared/Layout';
+
+history.listen(historyCb);
+historyCb(window.location);
 
 const RouteWithSubroutes = (route, index) => (
   <Route {...route} key={index} />
@@ -23,6 +29,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    store.dispatch(loadFromLocalStorage());
+
     this.unlisten = history.listen( location =>  {
       (location.state) ?
         this.setState({ notice: location.state }) :
@@ -39,7 +47,9 @@ class App extends Component {
             <Notice>{ notice }</Notice>
             <CartSection/>
             <Switch>
-              {routes.map((route, index) =>  RouteWithSubroutes(route, index))}
+              {routes.map((route, index) =>
+                RouteWithSubroutes(route, index))
+              }
             </Switch>
           </Layout>
         </Router>
