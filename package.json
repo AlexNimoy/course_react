@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bowser": "^2.3.0",
+    "formik": "^1.5.7",
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
