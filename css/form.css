@@ -11,3 +11,8 @@
 .ui.field.error input{
   border: 1px solid red;
 }
+
+.checkout_form input{
+  display: block;
+  margin: 1em;
+}
