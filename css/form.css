@@ -1,0 +1,13 @@
+.ui.field label {
+  width: 15em;
+  display: inline-block;
+}
+
+.ui.field input,
+.ui.field textarea{
+  margin: 1em;
+}
+
+.ui.field.error input{
+  border: 1px solid red;
+}
