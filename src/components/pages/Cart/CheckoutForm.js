@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFormik, Formik, Form, Field } from 'formik';
+import request from 'superagent';
 
 const Errors = ({ errors, touched, fieldName }) => {
   if(errors[fieldName] && touched[fieldName]) {
@@ -70,7 +71,15 @@ const CheckoutFrom = props => {
 }
 
 const ContactPageFormContainer = withFormik({
-  handleSubmit: (values) => alert(JSON.stringify(values)),
+  handleSubmit: (values) => {
+    request
+    .post('http://localhost:8085/checkout')
+    .send(values)
+    .then(res => {
+       alert(JSON.stringify(res.body));
+    });
+  },
+
   validate: values => {
     const errors = {};
 
