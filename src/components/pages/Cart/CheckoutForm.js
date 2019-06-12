@@ -14,7 +14,7 @@ const Errors = ({ errors, touched, fieldName }) => {
   return null;
 }
 
-const CheckoutFrom = props => {
+const CheckoutForm = props => {
   const {
     values,
     touched,
@@ -70,7 +70,7 @@ const CheckoutFrom = props => {
   );
 }
 
-const CheckoutFromContainer = withFormik({
+const CheckoutFormContainer = withFormik({
   handleSubmit: (values) => {
     APIRequestCheckout(values).then(
       response => alert(JSON.stringify(response)),
@@ -101,6 +101,6 @@ const CheckoutFromContainer = withFormik({
 
     return errors;
   }
-})(CheckoutFrom);
+})(CheckoutForm);
 
-export default CheckoutFromContainer;
+export default CheckoutFormContainer;
