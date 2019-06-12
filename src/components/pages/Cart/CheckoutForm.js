@@ -1,6 +1,6 @@
 import React from 'react';
 import { withFormik, Formik, Form, Field } from 'formik';
-import request from 'superagent';
+import APIRequestCheckout from '~/src/helpers/APIRequestCheckout';
 
 const Errors = ({ errors, touched, fieldName }) => {
   if(errors[fieldName] && touched[fieldName]) {
@@ -70,14 +70,12 @@ const CheckoutFrom = props => {
   );
 }
 
-const ContactPageFormContainer = withFormik({
+const CheckoutFromContainer = withFormik({
   handleSubmit: (values) => {
-    request
-    .post('http://localhost:8085/checkout')
-    .send(values)
-    .then(res => {
-       alert(JSON.stringify(res.body));
-    });
+    APIRequestCheckout(values).then(
+      response => alert(JSON.stringify(response)),
+      error => calert(JSON.stringify(error))
+    );
   },
 
   validate: values => {
@@ -105,4 +103,4 @@ const ContactPageFormContainer = withFormik({
   }
 })(CheckoutFrom);
 
-export default ContactPageFormContainer;
+export default CheckoutFromContainer;
