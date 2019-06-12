@@ -4,7 +4,7 @@
   "description": "Thinknetica React Course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,9 @@
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^8.0.1",
+    "jest": "^24.8.0",
+    "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16"
   },
   "bugs": {

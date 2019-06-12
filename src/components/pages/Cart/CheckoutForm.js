@@ -1,18 +1,7 @@
 import React from 'react';
 import { withFormik, Formik, Form, Field } from 'formik';
 import APIRequestCheckout from '~/src/helpers/APIRequestCheckout';
-
-const Errors = ({ errors, touched, fieldName }) => {
-  if(errors[fieldName] && touched[fieldName]) {
-    return(
-      <div className='error'>
-        { errors[fieldName] }
-      </div>
-    );
-  }
-
-  return null;
-}
+import FormErrors from '~/src/components/shared/FormErrors';
 
 const CheckoutForm = props => {
   const {
@@ -36,7 +25,7 @@ const CheckoutForm = props => {
               onBlur={ handleBlur }
               placeholder='ФИО'
             />
-            <Errors {...props} fieldName='fio'/>
+            <FormErrors {...props} fieldName='fio'/>
 
             <Field
               name='phone'
@@ -44,7 +33,7 @@ const CheckoutForm = props => {
               onBlur={ handleBlur }
               placeholder='Телефон'
             />
-            <Errors {...props} fieldName='phone'/>
+            <FormErrors {...props} fieldName='phone'/>
 
             <Field
               name='email'
@@ -52,7 +41,7 @@ const CheckoutForm = props => {
               onBlur={ handleBlur }
               placeholder='Email'
             />
-            <Errors {...props} fieldName='email'/>
+            <FormErrors {...props} fieldName='email'/>
 
             <Field
               name='address'
@@ -60,7 +49,7 @@ const CheckoutForm = props => {
               onBlur={ handleBlur }
               placeholder='Адрес'
             />
-            <Errors {...props} fieldName='address'/>
+            <FormErrors {...props} fieldName='address'/>
 
             <button type='submit'>Submit</button>
           </Form>

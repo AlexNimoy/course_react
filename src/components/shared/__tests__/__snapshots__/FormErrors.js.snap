@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`return error div 1`] = `
+<div
+  className="error"
+>
+  Required
+</div>
+`;
+
+exports[`return null if exist error for other fields 1`] = `null`;
+
+exports[`return null if field not touched 1`] = `null`;
+
+exports[`return null if not have errors 1`] = `null`;
