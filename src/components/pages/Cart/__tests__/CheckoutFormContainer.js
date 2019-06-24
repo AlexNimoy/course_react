@@ -21,4 +21,8 @@ describe('<CheckoutFormContainer>', () => {
   it('inclue h1 tag', () => {
     expect(form.getByText('Checkout')).toMatchSnapshot();
   });
+
+  it('not have error div', () => {
+    expect(form.queryByTestId('error-text')).not.toBeInTheDocument();
+  });
 });
