@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckoutFormContainer> inclue h1 tag 1`] = `
+<h1>
+  Checkout
+</h1>
+`;

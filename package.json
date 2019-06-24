@@ -38,10 +38,12 @@
     "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16"
   },
-  "jest": {
-    "moduleDirectories": [
-      "<rootDir>/src"
-    ]
+  "jest" : {
+    "modulePaths": ["."],
+    "moduleDirectories": ["node_modules"],
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/$1"
+    }
   },
   "bugs": {
     "url": "https://github.com/Backstabe/course_react/issues"
