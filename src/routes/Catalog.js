@@ -1,6 +1,6 @@
-import { mainPath } from "~/src/helpers/routes";
-import Catalog from '~/src/components/pages/Catalog';
-import { fetchProducts } from '~/src/actions/Products';
+import { mainPath } from "helpers/routes";
+import Catalog from 'components/pages/Catalog';
+import { fetchProducts } from 'actions/Products';
 
 export default {
   path: mainPath(),

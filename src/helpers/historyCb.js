@@ -1,10 +1,10 @@
 import { matchPath } from 'react-router-dom';
 import { parse } from 'qs';
 
-import store from '~/src/store';
-import routes from '~/src/routes';
+import store from 'store';
+import routes from 'routes';
 
-import prepareData from '~/src/helpers/prepareData';
+import prepareData from 'helpers/prepareData';
 
 const historyCb = (location, action = 'PUSH') => {
   const state = { params: {}, query: {}, routes: [] }

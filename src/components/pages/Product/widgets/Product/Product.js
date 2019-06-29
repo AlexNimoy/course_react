@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import GalleryLayout from '~/src/components/shared/Gallery';
-import Price from '~/src/components/shared/ProductCard/Price';
-import TextBox from '~/src/components/shared/ProductCard/TextBox';
-import AddToCartButton from '~/src/components/shared/widgets/AddToCartButton';
+import GalleryLayout from 'components/shared/Gallery';
+import Price from 'components/shared/ProductCard/Price';
+import TextBox from 'components/shared/ProductCard/TextBox';
+import AddToCartButton from 'components/shared/widgets/AddToCartButton';
 class Product extends Component {
   render() {
     const { product } = this.props;

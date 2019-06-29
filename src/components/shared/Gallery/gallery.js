@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Images from './Images';
-import Image from '~/src/components/shared/ProductCard/Image';
+import Image from 'components/shared/ProductCard/Image';
 
 class Gallery extends Component {
   constructor(props) {

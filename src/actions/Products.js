@@ -1,6 +1,6 @@
-import * as types from '~/src/constants/actionTypes/ProductsActionTypes';
+import * as types from 'constants/actionTypes/ProductsActionTypes';
 
-import { API_CALL } from '~/src/middleware/API';
+import { API_CALL } from 'middleware/API';
 
 export const fetchProducts = () => {
   return {

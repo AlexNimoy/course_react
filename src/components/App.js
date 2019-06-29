@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { Router, Switch, Route, matchPath } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import historyCb from '~/src/helpers/historyCb';
-import { loadFromLocalStorage } from '~/src/actions/Cart';
+import historyCb from 'helpers/historyCb';
+import { loadFromLocalStorage } from 'actions/Cart';
 
-import routes from '~/src/routes';
-import history from '~/src/helpers/history';
-import store from '~/src/store';
+import routes from 'routes';
+import history from 'helpers/history';
+import store from 'store';
 
-import CartSection from '~/src/components/pages/Cart/widgets/Section';
-import Notice from '~/src/components/shared/Notice';
-import Layout from '~/src/components/shared/Layout';
+import CartSection from 'components/pages/Cart/widgets/Section';
+import Notice from 'components/shared/Notice';
+import Layout from 'components/shared/Layout';
 
 history.listen(historyCb);
 historyCb(window.location);

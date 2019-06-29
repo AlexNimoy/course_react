@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '~/src/components/shared/ProductCard/Image';
+import Image from 'components/shared/ProductCard/Image';
 
 const Slide = ({ title, images }) => {
   if (images) {

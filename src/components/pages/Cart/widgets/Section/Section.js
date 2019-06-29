@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CartButton from '~/src/components/pages/Cart/widgets/CartButton';
+import CartButton from 'components/pages/Cart/widgets/CartButton';
 
 class Section extends Component {
   constructor(props) {

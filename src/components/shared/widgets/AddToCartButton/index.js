@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addToCart } from '~/src/actions/Cart';
+import { addToCart } from 'actions/Cart';
 import AddToCartButton from './AddToCartButton';
 
 const stateToProps = (state) => ({

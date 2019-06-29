@@ -1,7 +1,7 @@
 import React from 'react';
 import { withFormik, Formik, Form, Field } from 'formik';
-import APIRequestCheckout from '~/src/helpers/APIRequestCheckout';
-import FormErrors from '~/src/components/shared/FormErrors';
+import APIRequestCheckout from 'helpers/APIRequestCheckout';
+import FormErrors from 'components/shared/FormErrors';
 
 const CheckoutForm = props => {
   const {

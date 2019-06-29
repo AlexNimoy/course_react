@@ -1,4 +1,4 @@
-import APICall from '~/src/helpers/APICall';
+import APICall from 'helpers/APICall';
 
 const APIRequestCheckout = ({values}) => {
   return APICall({

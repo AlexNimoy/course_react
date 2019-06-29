@@ -1,6 +1,6 @@
 import { stringify } from 'qs';
 
-import { API_ROOT } from '~/src/constants/API';
+import { API_ROOT } from 'constants/API';
 
 import request from 'superagent';
 

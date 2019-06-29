@@ -4,7 +4,8 @@
   "description": "Thinknetica React Course",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start:dev": "webpack-dev-server --config ./initializers/webpack/dev.js"
   },
   "repository": {
     "type": "git",
@@ -33,14 +34,26 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^8.0.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
     "jest": "^24.8.0",
     "jest-dom": "^3.5.0",
     "react-test-renderer": "^16.8.6",
-    "remote-redux-devtools": "^0.5.16"
+    "remote-redux-devtools": "^0.5.16",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
   },
-  "jest" : {
-    "modulePaths": ["."],
-    "moduleDirectories": ["node_modules"],
+  "jest": {
+    "modulePaths": [
+      "."
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
     "moduleNameMapper": {
       "^~/(.*)$": "<rootDir>/$1"
     }
