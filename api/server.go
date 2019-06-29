@@ -12,10 +12,11 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func MainHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Received request for /")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
@@ -25,7 +26,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Received request for /products")
 	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	data, err := ioutil.ReadFile("./products.json")
 	if err != nil {
@@ -34,6 +34,21 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	w.Write(data)
+}
+
+func CheckoutHandler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Received request for /checkout")
+	w.Header().Set("Content-Type", "application/json")
+
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println(string(body))
+
+	w.WriteHeader(http.StatusOK)
+	io.WriteString(w, `{"status": "ok"}`)
 }
 
 // Handle404
@@ -59,12 +74,20 @@ func main() {
 	// Create Server and Route Handlers
 	r := mux.NewRouter()
 
-	r.HandleFunc("/", handler)
+	r.HandleFunc("/", MainHandler)
 	r.HandleFunc("/products", ProductsHandler)
+	r.HandleFunc("/checkout", CheckoutHandler).Methods("POST")
 	r.NotFoundHandler = Handle404()
 
+	handler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowCredentials: true,
+		// Enable Debugging for testing, consider disabling in production
+		Debug: true,
+	}).Handler(r)
+
 	srv := &http.Server{
-		Handler:      r,
+		Handler:      handler,
 		Addr:         ":8080",
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 10 * time.Second,

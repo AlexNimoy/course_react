@@ -4,7 +4,7 @@
   "description": "Thinknetica React Course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,6 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "bowser": "^2.3.0",
+    "classnames": "^2.2.6",
+    "formik": "^1.5.7",
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
@@ -30,7 +32,18 @@
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^8.0.1",
+    "jest": "^24.8.0",
+    "jest-dom": "^3.5.0",
+    "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16"
+  },
+  "jest" : {
+    "modulePaths": ["."],
+    "moduleDirectories": ["node_modules"],
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/$1"
+    }
   },
   "bugs": {
     "url": "https://github.com/Backstabe/course_react/issues"
