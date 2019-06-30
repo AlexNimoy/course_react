@@ -4,8 +4,10 @@
   "description": "Thinknetica React Course",
   "main": "index.js",
   "scripts": {
+    "cleanup": "rm -rf public/assets",
     "test": "jest",
-    "start:dev": "webpack-dev-server --config ./initializers/webpack/dev.js"
+    "start:dev": "webpack-dev-server --config ./initializers/webpack/dev.js",
+    "build": "webpack --config ./initializers/webpack/prod.js"
   },
   "repository": {
     "type": "git",
@@ -36,8 +38,10 @@
     "@testing-library/react": "^8.0.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
     "jest-dom": "^3.5.0",
+    "mini-css-extract-plugin": "^0.7.0",
     "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16",
     "style-loader": "^0.23.1",
