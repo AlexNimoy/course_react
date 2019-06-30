@@ -6,6 +6,7 @@ const common = require('./common');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -40,6 +41,7 @@ module.exports = merge(common, {
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash].css'
-    })
+    }),
+    new ManifestPlugin()
   ]
 });
