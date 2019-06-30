@@ -8,3 +8,10 @@ Thinknetica React Course
 `$ docker-compose up --build`
 
 `$ docker-compose up`
+
+
+## Deploy
+
+`surge`
+
+`http://th-shop.surge.sh/`
