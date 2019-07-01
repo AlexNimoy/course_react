@@ -7,6 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
 
   devServer: {
+    index: 'index.dev.html',
     contentBase: path.resolve(process.cwd(), 'public'),
     historyApiFallback: true
   },
