@@ -33,7 +33,9 @@ module.exports = merge(common, {
 
   plugins: [
     new webpack.DefinePlugin({
-      NODE_ENV: 'production'
+      NODE_ENV: 'production',
+      __CLIENT__: true,
+      __SERVER__: false
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
