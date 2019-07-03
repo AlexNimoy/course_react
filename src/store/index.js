@@ -1,5 +1,5 @@
 import {
-  createStore, applyMiddleware, compose
+  createStore, applyMiddleware
 } from 'redux';
 
 import APIMiddleware from 'middleware/API';
