@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import { Router, Switch, Route, matchPath } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import historyCb from 'helpers/historyCb';
 import { loadFromLocalStorage } from 'actions/Cart';
 
 import routes from 'routes';
-import history from 'helpers/history';
-import store from 'store';
 
 import CartSection from 'components/pages/Cart/widgets/Section';
 import Notice from 'components/shared/Notice';
 import Layout from 'components/shared/Layout';
 
-history.listen(historyCb);
-historyCb(window.location);
+import 'css/styles.css';
+import 'css/form.css';
 
 const RouteWithSubroutes = (route, index) => (
   <Route {...route} key={index} />
 )
+
+const AppRouter = ({ history, children, location }) => {
+  return(<Router history={ history }>{ children }</Router>);
+};
 
 const initialState = { notice: '' };
 
@@ -29,9 +30,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    store.dispatch(loadFromLocalStorage());
+    this.props.store.dispatch(loadFromLocalStorage());
 
-    this.unlisten = history.listen( location =>  {
+    this.unlisten = this.props.history.listen( location =>  {
       (location.state) ?
         this.setState({ notice: location.state }) :
         this.setState(initialState)
@@ -40,9 +41,14 @@ class App extends Component {
 
   render() {
     const { notice } = this.state;
+    const { history, location, store } = this.props;
+
     return(
       <Provider store={store}>
-        <Router history={ history }>
+        <AppRouter
+          history={ history }
+          location={ location }
+        >
           <Layout>
             <Notice>{ notice }</Notice>
             <CartSection/>
@@ -52,7 +58,7 @@ class App extends Component {
               }
             </Switch>
           </Layout>
-        </Router>
+        </AppRouter>
       </Provider>
     );
   }
