@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { loadFromLocalStorage } from 'actions/Cart';
@@ -17,8 +17,18 @@ const RouteWithSubroutes = (route, index) => (
   <Route {...route} key={index} />
 )
 
-const AppRouter = ({ history, children, location }) => {
-  return(<Router history={ history }>{ children }</Router>);
+const AppRouter = ({ history, children, location, context }) => {
+  if(__CLIENT__)
+    return(<Router history={ history }>{ children }</Router>);
+  if(__SERVER__)
+    return(
+      <StaticRouter
+        location={ location }
+        context={ context }
+      >
+        { children }
+      </StaticRouter>
+    );
 };
 
 const initialState = { notice: '' };
@@ -41,13 +51,14 @@ class App extends Component {
 
   render() {
     const { notice } = this.state;
-    const { history, location, store } = this.props;
+    const { history, location, store, context } = this.props;
 
     return(
       <Provider store={store}>
         <AppRouter
           history={ history }
           location={ location }
+          context={ context }
         >
           <Layout>
             <Notice>{ notice }</Notice>
