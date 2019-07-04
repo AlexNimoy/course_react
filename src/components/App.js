@@ -10,8 +10,8 @@ import CartSection from 'components/pages/Cart/widgets/Section';
 import Notice from 'components/shared/Notice';
 import Layout from 'components/shared/Layout';
 
-import 'css/styles.css';
-import 'css/form.css';
+import 'styles/styles.css';
+import 'styles/form.css';
 
 const RouteWithSubroutes = (route, index) => (
   <Route {...route} key={index} />

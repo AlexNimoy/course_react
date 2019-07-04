@@ -23,7 +23,7 @@ module.exports = merge(common, {
   module: {
     exprContextCritical: false,
     rules: [
-      { test: /\.css$/, use: 'ignore-loader' }
+      { test: /\.css$/, loader: 'ignore-loader' }
     ]
   },
 

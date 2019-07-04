@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from './Gallery';
 
-import 'css/Modal.css';
+import 'styles/modal.css';
 
 const Modal = ({ children, onClickOutside }) => (
   <div>
