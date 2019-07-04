@@ -8,7 +8,8 @@
     "test": "jest",
     "start:dev": "webpack-dev-server --config ./initializers/webpack/dev.js",
     "build": "webpack --config ./initializers/webpack/prod.js",
-    "build:server": "webpack --config ./initializers/webpack/server.js"
+    "build:server": "webpack --config ./initializers/webpack/server.js",
+    "server:map": "node -r source-map-support/register ./build/server.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "mini-css-extract-plugin": "^0.7.0",
     "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16",
+    "source-map-support": "^0.5.12",
     "style-loader": "^0.23.1",
     "webpack": "^4.35.0",
     "webpack-bundle-analyzer": "^3.3.2",
