@@ -21,7 +21,10 @@ module.exports = merge(common, {
   ],
 
   module: {
-    exprContextCritical: false
+    exprContextCritical: false,
+    rules: [
+      { test: /\.css$/, use: 'ignore-loader' }
+    ]
   },
 
   plugins: [
