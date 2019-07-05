@@ -1,5 +1,6 @@
 .cache
 dist/
 node_modules/
-public/
+public/assets
+public/manifest.json
 build/

@@ -9,7 +9,7 @@ import store from 'store';
 history.listen(historyCb);
 historyCb(window.location);
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <App history={ history } store={ store } />,
   document.getElementById('root')
 )
