@@ -6,7 +6,7 @@ export default {
   path: mainPath(),
   component: Catalog,
   prepareData: (store) =>  {
-    store.dispatch(fetchProducts());
+    return store.dispatch(fetchProducts());
   },
   exact: true,
   strict: true

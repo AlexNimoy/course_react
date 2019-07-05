@@ -12,7 +12,7 @@ export default (req, res) => {
     .then(() => {
       const context = {};
       return {
-        content: renderToString(<App location={req.url} context={context} />),
+        content: renderToString(<App store={store} location={req.url} context={context} />),
         initialState: store.getState()
       };
     });
