@@ -3,6 +3,7 @@ import { set, assign } from 'lodash/object';
 
 import Text from './Fields/Text';
 import TextArea from './Fields/TextArea';
+import Helmet from 'react-helmet';
 class ContactPage extends Component {
   constructor(props) {
     super(props);
@@ -63,6 +64,9 @@ class ContactPage extends Component {
 
     return(
       <div>
+        <Helmet>
+          <title>ContactPage</title>
+        </Helmet>
         <h1>ContactPage</h1>
         <form
           onSubmit={ this.onSubmit }

@@ -23,6 +23,7 @@ app.get(
         res.render(
           'index', {
             content: result.content,
+            helmet: result.helmet,
             manifest,
             initialState: JSON.stringify(result.initialState)
           }

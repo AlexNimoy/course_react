@@ -47,6 +47,7 @@
     "jest": "^24.8.0",
     "jest-dom": "^3.5.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "react-helmet": "^5.2.1",
     "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16",
     "source-map-support": "^0.5.12",
