@@ -20,6 +20,7 @@ app.get(
     render(req, res)
       .then((result) => {
         res.status(200);
+        { console.log(result.context) }
         res.render(
           'index', {
             content: result.content,

@@ -1,7 +1,11 @@
 import NotFound from 'components/pages/NotFound';
+import React from 'react';
 
 export default {
   path: "*",
-  component: NotFound,
+  render: (context) => {
+    context.status = 404;
+    return <NotFound />;
+  },
   exact: true
 }

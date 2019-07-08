@@ -16,7 +16,8 @@ export default (req, res) => {
       return {
         content: renderToString(<App store={store} location={req.url} context={context} />),
         initialState: store.getState(),
-        helmet: Helmet.renderStatic()
+        helmet: Helmet.renderStatic(),
+        context: context
       };
     });
 };
