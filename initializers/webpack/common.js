@@ -1,4 +1,11 @@
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const isAnalyze = process.env.BUNDLE_ANALYZE !== "undefined";
+let plugins = [];
+
+if (isAnalyze) {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = {
   entry: './src/index.js',
@@ -27,5 +34,7 @@ module.exports = {
       path.relative(process.cwd(), 'src'),
       'node_modules'
     ]
-  }
+  },
+
+  plugins
 }

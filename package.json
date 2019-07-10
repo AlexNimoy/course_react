@@ -8,6 +8,7 @@
     "test": "jest",
     "start:dev": "webpack-dev-server --config ./initializers/webpack/dev.js",
     "build": "webpack --config ./initializers/webpack/prod.js",
+    "build:analize": "BUNDLE_ANALYZE=true webpack --progress -p --config ./initializers/webpack/prod.js",
     "build:server": "webpack --config ./initializers/webpack/server.js",
     "server:map": "node -r source-map-support/register ./build/server.js"
   },
