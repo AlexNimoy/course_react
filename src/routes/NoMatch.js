@@ -3,8 +3,8 @@ import React from 'react';
 
 export default {
   path: "*",
-  render: (context) => {
-    context.status = 404;
+  render: ({ staticContext }) => {
+    staticContext.status = 404;
     return <NotFound />;
   },
   exact: true
