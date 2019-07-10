@@ -1,7 +1,7 @@
-import * as types from '~/src/constants/actionTypes/CartActionTypes';
+import * as types from 'constants/actionTypes/CartActionTypes';
 import { assign } from 'lodash';
 
-import { saveState, loadState } from '~/src/helpers/cartLocalStorage';
+import { saveState, loadState } from 'helpers/cartLocalStorage';
 
 export default store => next => action => {
   switch(action.type) {

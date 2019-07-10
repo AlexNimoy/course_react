@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { fetchProducts } from '~/src/actions/Products';
-import Slides from '~/src/components/shared/Slides';
+import { fetchProducts } from 'actions/Products';
+import Slides from 'components/shared/Slides';
 
 const stateToProps = (state) => ({
   items: state.products.entries,

@@ -1,5 +1,5 @@
 import { assign, pick } from 'lodash';
-import APICall from '~/src/helpers/APICall';
+import APICall from 'helpers/APICall';
 
 export const API_CALL = 'API_CALL';
 

@@ -6,10 +6,10 @@ const PrepareData = (store, state) => {
 
   const prepareDataFns = compact(map(routes, route => route.prepareData));
 
-  return map(
+  return Promise.all(map(
     prepareDataFns,
     prepareData => prepareData(store, query, params, location)
-  );
+  ));
 }
 
 export default PrepareData;

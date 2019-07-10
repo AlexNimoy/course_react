@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import PreviewImage from './PreviewImage';
 
 const Images = ({ children, handle }) => (
@@ -16,11 +15,5 @@ const Images = ({ children, handle }) => (
     }
   </Fragment>
 );
-
-Images.propTypes = {
-  children: PropTypes.arrayOf(
-    PropTypes.shape(Image.propTypes)
-  )
-}
 
 export default Images;

@@ -1,10 +1,10 @@
 import { matchPath } from 'react-router-dom';
 import { parse } from 'qs';
 
-import store from '~/src/store';
-import routes from '~/src/routes';
+import store from 'store';
+import routes from 'routes';
 
-import prepareData from '~/src/helpers/prepareData';
+import prepareData from 'helpers/prepareData';
 
 const historyCb = (location, action = 'PUSH') => {
   const state = { params: {}, query: {}, routes: [] }
@@ -15,13 +15,18 @@ const historyCb = (location, action = 'PUSH') => {
     if (match) {
       state.routes.push(route);
       Object.assign(state.params, match.params);
-      Object.assign(state.query, parse(location.search.substr(1)));
+
+      if(__CLIENT__)
+        Object.assign(state.query, parse(location.search.substr(1)));
+
+      if(__SERVER__)
+        state.query == location.query;
     }
 
     return match;
   });
 
-  prepareData(store, state);
+  return prepareData(store, state);
 }
 
 export default historyCb;

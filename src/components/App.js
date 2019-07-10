@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-import { Router, Switch, Route, matchPath } from 'react-router-dom';
+import { Router, Switch, Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import historyCb from '~/src/helpers/historyCb';
-import { loadFromLocalStorage } from '~/src/actions/Cart';
+import { loadFromLocalStorage } from 'actions/Cart';
 
-import routes from '~/src/routes';
-import history from '~/src/helpers/history';
-import store from '~/src/store';
+import routes from 'routes';
 
-import CartSection from '~/src/components/pages/Cart/widgets/Section';
-import Notice from '~/src/components/shared/Notice';
-import Layout from '~/src/components/shared/Layout';
+import CartSection from 'components/pages/Cart/widgets/Section';
+import Notice from 'components/shared/Notice';
+import Layout from 'components/shared/Layout';
 
-history.listen(historyCb);
-historyCb(window.location);
+import 'styles/styles.css';
+import 'styles/form.css';
 
 const RouteWithSubroutes = (route, index) => (
   <Route {...route} key={index} />
 )
+
+const AppRouter = ({ history, children, location, context }) => {
+  if(__CLIENT__)
+    return(<Router history={ history }>{ children }</Router>);
+  if(__SERVER__)
+    return(
+      <StaticRouter
+        location={ location }
+        context={ context }
+      >
+        { children }
+      </StaticRouter>
+    );
+};
 
 const initialState = { notice: '' };
 
@@ -29,9 +40,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    store.dispatch(loadFromLocalStorage());
+    this.props.store.dispatch(loadFromLocalStorage());
 
-    this.unlisten = history.listen( location =>  {
+    this.unlisten = this.props.history.listen( location =>  {
       (location.state) ?
         this.setState({ notice: location.state }) :
         this.setState(initialState)
@@ -40,9 +51,15 @@ class App extends Component {
 
   render() {
     const { notice } = this.state;
+    const { history, location, store, context } = this.props;
+
     return(
       <Provider store={store}>
-        <Router history={ history }>
+        <AppRouter
+          history={ history }
+          location={ location }
+          context={ context }
+        >
           <Layout>
             <Notice>{ notice }</Notice>
             <CartSection/>
@@ -52,7 +69,7 @@ class App extends Component {
               }
             </Switch>
           </Layout>
-        </Router>
+        </AppRouter>
       </Provider>
     );
   }

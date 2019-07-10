@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { cartPath } from '~/src/helpers/routes';
+import { cartPath } from 'helpers/routes';
 
 const Button = props => (
   <Link to={ cartPath() }>

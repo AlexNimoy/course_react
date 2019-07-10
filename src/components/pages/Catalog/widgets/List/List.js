@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ProductCard from '~/src/components/shared/ProductCard';
+import ProductCard from 'components/shared/ProductCard';
 
 class Catalog extends Component {
   render() {

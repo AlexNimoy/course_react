@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchProducts } from '~/src/actions/Products';
+import { fetchProducts } from 'actions/Products';
 import  Product from './Product';
 
 const findProduct = (state, ownProps) => {

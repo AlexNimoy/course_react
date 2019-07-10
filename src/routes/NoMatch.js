@@ -1,7 +1,11 @@
-import NotFound from '~/src/components/pages/NotFound';
+import NotFound from 'components/pages/NotFound';
+import React from 'react';
 
 export default {
   path: "*",
-  component: NotFound,
+  render: ({ staticContext }) => {
+    staticContext.status = 404;
+    return <NotFound />;
+  },
   exact: true
 }

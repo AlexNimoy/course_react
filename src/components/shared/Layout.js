@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
-import { mainPath, contactPath } from '~/src/helpers/routes';
+import { mainPath, contactPath } from 'helpers/routes';
 
 const Layout = ({ children }) => (
   <Fragment>

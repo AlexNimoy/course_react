@@ -1,11 +1,11 @@
 import {
-  createStore, applyMiddleware, compose
+  createStore, applyMiddleware
 } from 'redux';
 
-import APIMiddleware from '~/src/middleware/API';
-import LocalStorage from '~/src/middleware/LocalStorage';
+import APIMiddleware from 'middleware/API';
+import LocalStorage from 'middleware/LocalStorage';
 import { composeWithDevTools } from 'remote-redux-devtools';
-import reducers from '~/src/reducers';
+import reducers from 'reducers';
 
 const store = createStore(
   reducers,

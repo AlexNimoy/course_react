@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
-import { productsPath } from '~/src/helpers/routes';
+import { productsPath } from 'helpers/routes';
 
 import Image from './Image';
 import TextBox from './TextBox';
